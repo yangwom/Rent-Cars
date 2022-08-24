@@ -1,4 +1,5 @@
 using RentCars.Types;
+using FluentAssertions;
 
 namespace RentCars.Test;
 
@@ -10,7 +11,8 @@ public class TestEnums
     [InlineData(3, "Drum")]
     public void BreakeTypeShouldHaveCorrectValues(int valueEntry, string expected)
     {
-        throw new NotImplementedException();
+        BrakeType Types = (BrakeType)valueEntry;
+        Types.ToString().Should().BeEquivalentTo(expected);
     }
 
     [Theory]
@@ -19,7 +21,9 @@ public class TestEnums
     [InlineData(2, "AllWheelDrive")]
     public void TractionTypeShouldHaveCorrectValues(int valueEntry, string expected)
     {
-        throw new NotImplementedException();
+        TractionType Type = (TractionType)valueEntry;
+
+        Type.ToString().Should().BeEquivalentTo(expected);
     }
 
     [Theory]
@@ -31,7 +35,9 @@ public class TestEnums
     [InlineData(60, "Hybrid")]
     public void FuelTypeShouldHaveCorrectValues(int valueEntry, string expected)
     {
-        throw new NotImplementedException();
+        FuelType Type = (FuelType)valueEntry;
+
+        Type.ToString().Should().BeEquivalentTo(expected);
     }
 
     [Theory]
@@ -39,12 +45,13 @@ public class TestEnums
     [InlineData(1, "Finished")]
     public void RentStatusShouldHaveCorrectValues(int valueEntry, string expected)
     {
-        throw new NotImplementedException();
+        RentStatus Type = (RentStatus)valueEntry;
+        Type.ToString().Should().BeEquivalentTo(expected);
     }
 
     [Fact]
     public void RentStatusFinishedShouldBeTheSameValueAsCancelled()
     {
-        throw new NotImplementedException();
+       // Type.ToString().Should().BeEquivalentTo(expected);
     }
 }
