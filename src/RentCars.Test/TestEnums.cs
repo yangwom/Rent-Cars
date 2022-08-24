@@ -52,6 +52,6 @@ public class TestEnums
     [Fact]
     public void RentStatusFinishedShouldBeTheSameValueAsCancelled()
     {
-       // Type.ToString().Should().BeEquivalentTo(expected);
+       RentStatus.Finished.Should().Be(RentStatus.Cancelled);
     }
 }

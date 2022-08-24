@@ -10,18 +10,37 @@ public class Rent
     public double Price { get; set; }
     public RentStatus Status { get; set; }
 
+    public double Percentage = 0.10;
+
     public Rent(Vehicle vehicle, Person person, int daysRented)
     {
-        throw new NotImplementedException();
+        Vehicle = vehicle;
+        Person = person;
+        DaysRented = daysRented;
+        Vehicle.IsRented = true;
+        Person.Debit = Price;
+        Status = RentStatus.Confirmed;
+
+        if (person is PhysicalPerson)
+        {
+            Price = vehicle.PricePerDay * DaysRented;
+        }
+        if (person is LegalPerson)
+        {
+            Price = vehicle.PricePerDay * DaysRented * Percentage;
+
+
+        }
     }
 
     public void Cancel()
-    {        
-        throw new NotImplementedException();
+    {
+        Status = RentStatus.Cancelled;
     }
 
     public void Finish()
-    {        
-        throw new NotImplementedException();
+    {
+        Status = RentStatus.Finished;
+
     }
 }
